@@ -1,1 +1,1 @@
-from simpleprocessor import SimplePreprocessor
+from .simpleprocessor import SimplePreprocessor
