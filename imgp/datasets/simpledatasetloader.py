@@ -1,10 +1,12 @@
+from imgp.preprocessing.simpleprocessor import SimplePreprocessor
+from typing import Union, Tuple, List
 import numpy as np
 import cv2
 import os
 
 
 class SimpleDatasetLoader:
-    def __init__(self, preprocessors=None):
+    def __init__(self, preprocessors: list[SimplePreprocessor] | None = None):
         # store the image preprocessor
         self.preprocessors = preprocessors
 
