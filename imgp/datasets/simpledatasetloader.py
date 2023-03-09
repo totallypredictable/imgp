@@ -6,6 +6,23 @@ import os
 
 
 class SimpleDatasetLoader:
+    """
+    The SimpleDatasetLoader() loads in images from a list of given paths,
+    applying any preprocessors provided. All of the images will be returned
+    at once, so make sure the images can actually fit into memory.
+
+    Parameters
+    ----------
+    preprocessors: list, default=None
+        The list of preprocessors to be applied to the images.
+
+    Methods
+    -------
+    load:
+        Load the images from the given paths and preprocess them given the
+        preprocessors.
+    """
+
     def __init__(self, preprocessors: list[SimplePreprocessor] | None = None):
         # store the image preprocessor
         self.preprocessors = preprocessors
@@ -14,7 +31,7 @@ class SimpleDatasetLoader:
         if self.preprocessors is None:
             self.preprocessors = []
 
-    def load(self, imagePaths, verbose=-1):
+    def load(self, imagePaths: list[str], verbose: int = -1) -> tuple(np.array, np.array):
         # initialize the list of features and labels
         data = []
         labels = []
