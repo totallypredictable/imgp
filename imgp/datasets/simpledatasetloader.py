@@ -31,7 +31,9 @@ class SimpleDatasetLoader:
         if self.preprocessors is None:
             self.preprocessors = []
 
-    def load(self, imagePaths: list[str], verbose: int = -1) -> tuple(np.array, np.array):
+    def load(
+        self, imagePaths: list[str], verbose: int = -1
+    ) -> tuple[np.array, np.array]:
         # initialize the list of features and labels
         data = []
         labels = []
