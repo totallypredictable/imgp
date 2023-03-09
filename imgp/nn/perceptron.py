@@ -1,17 +1,18 @@
 import numpy as np
+import numpy.typing as npt
 
 
 class Perceptron:
-    def __init__(self, N, alpha=0.1):
+    def __init__(self, N: int, alpha: float = 0.1):
         # initialise the weight matrix and store the learning rate
         self.W = np.random.randn(N + 1) / np.sqrt(N)
         self.alpha = alpha
 
-    def step(self, x):
+    def step(self, x: int | float) -> int:
         # apply the step function
         return 1 if x > 0 else 0
 
-    def fit(self, X, y, epochs=10):
+    def fit(self, X: npt.ArrayLike, y: npt.ArrayLike, epochs: int = 10) -> None:
         # insert a column of 1's as the last entry in the feature matrix
         # this little trick allows us to treat the bias as a trainable
         # parameter within the weight matrix
@@ -34,7 +35,7 @@ class Perceptron:
                     # update the weight matrix
                     self.W += -self.alpha * error * x
 
-    def predict(self, X, addBias=True):
+    def predict(self, X: npt.ArrayLike, addBias: bool = True):
         # ensure out input is a matrix
         X = np.atleast_2d(X)
 
