@@ -33,7 +33,7 @@ class SimpleDatasetLoader:
 
     def load(
         self, imagePaths: list[str], verbose: int = -1
-    ) -> tuple[np.array, np.array]:
+    ) -> tuple[np.ndarray, np.ndarray]:
         # initialize the list of features and labels
         data = []
         labels = []
