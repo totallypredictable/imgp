@@ -12,7 +12,7 @@ class Perceptron:
         # apply the step function
         return 1 if x > 0 else 0
 
-    def fit(self, X: npt.ArrayLike, y: npt.ArrayLike, epochs: int = 10) -> None:
+    def fit(self, X: np.ndarray, y: np.ndarray | list, epochs: int = 10) -> None:
         # insert a column of 1's as the last entry in the feature matrix
         # this little trick allows us to treat the bias as a trainable
         # parameter within the weight matrix
