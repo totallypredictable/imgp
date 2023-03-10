@@ -1,5 +1,4 @@
 import numpy as np
-import numpy.typing as npt
 
 
 class Perceptron:
@@ -35,7 +34,7 @@ class Perceptron:
                     # update the weight matrix
                     self.W += -self.alpha * error * x
 
-    def predict(self, X: npt.ArrayLike, addBias: bool = True):
+    def predict(self, X: np.ndarray, addBias: bool = True):
         # ensure out input is a matrix
         X = np.atleast_2d(X)
 
