@@ -25,3 +25,13 @@ def test_fit(X=X, y=y):
         decimal=7,
         err_msg="Desired and actual weights are not close enough",
     )
+
+
+def test_predict(X=X, y=y):
+    p = Perceptron(X.shape[1])
+    p.fit(X, y, epochs=5)
+    pred = []
+    for (x, target) in zip(X, y):
+        pred.append(p.predict(x))
+    desired = [0, 0, 1, 1]
+    assert desired == pred
