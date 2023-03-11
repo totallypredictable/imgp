@@ -22,7 +22,7 @@ class Perceptron:
         for epoch in np.arange(0, epochs):
             for (x, target) in zip(X, y):
                 # take the dot product between the input features
-                # and the wight matrix, then pass this value through
+                # and the weight matrix, then pass this value through
                 # the step function to obtain the prediction
                 p = self.step(np.dot(x, self.W))
 
