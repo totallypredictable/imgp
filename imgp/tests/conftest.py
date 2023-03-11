@@ -5,8 +5,6 @@ import imgp
 
 root = pathlib.Path(imgp.__file__).resolve().parent
 
-current_path = os.getcwd()
-
 
 @pytest.fixture()
 def img_paths():
