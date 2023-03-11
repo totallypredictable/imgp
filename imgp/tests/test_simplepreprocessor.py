@@ -16,3 +16,8 @@ def test_preprocess():
     expected_img = cv2.resize(image, (32, 32), interpolation=cv2.INTER_AREA)
     returned_img = sp.preprocess(image)
     npt.assert_array_equal(expected_img, returned_img)
+
+
+def test_load(img_paths):
+    sp = SimplePreprocessor()
+    sp.load(imagePaths=img_paths)
