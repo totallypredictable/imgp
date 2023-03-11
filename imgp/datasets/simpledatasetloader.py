@@ -45,7 +45,7 @@ class SimpleDatasetLoader:
             image = cv2.imread(imagePath)
             label = imagePath.split(os.path.sep)[-2]
             # check to see if our preprocessors are not None
-            if self.preprocessors is not None:
+            if len(self.preprocessors) > 0:
                 # loop over the preprocessors and apply each to the image
                 for p in self.preprocessors:
                     image = p.preprocess(image)
