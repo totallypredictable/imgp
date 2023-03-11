@@ -1,0 +1,6 @@
+opencv-python
+matplotlib
+pytest
+pre-commit
+pillow
+numpy
