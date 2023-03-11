@@ -1,5 +1,4 @@
 from imgp.preprocessing.simpleprocessor import SimplePreprocessor
-from typing import Union, Tuple, List
 import numpy as np
 import cv2
 import os
