@@ -1,6 +1,5 @@
 from imgp.datasets.simpledatasetloader import SimpleDatasetLoader
 from imgp.preprocessing.simpleprocessor import SimplePreprocessor
-import numpy.testing as npt
 import numpy as np
 import pytest
 
@@ -32,11 +31,11 @@ def test_load(img_paths):
 
 def test_load_without_preprocessors(img_paths):
     dl = SimpleDatasetLoader(preprocessors=None)
-    with pytest.raises(Exception) as e_info:
+    with pytest.raises(Exception):
         dl.load(img_paths)
 
 
 def test_load_verbose(img_paths):
     dl = SimpleDatasetLoader()
-    with pytest.raises(Exception) as e_info:
+    with pytest.raises(Exception):
         dl.load(img_paths, 1)
