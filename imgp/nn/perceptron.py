@@ -2,10 +2,16 @@ import numpy as np
 
 
 class Perceptron:
-    def __init__(self, N: int, alpha: float = 0.1, random_state: int = 0):
+    def __init__(
+        self, N: int, alpha: float = 0.1, random_state: int = 0, addBias: bool = True
+    ):
         # initialise the weight matrix and store the learning rate
         np.random.seed(random_state)
-        self.W = np.random.randn(N + 1) / np.sqrt(N)
+        self.addBias = addBias
+        if self.addBias:
+            self.W = np.random.randn(N + 1) / np.sqrt(N)
+        else:
+            self.W = np.random.randn(N) / np.sqrt(N)
         self.alpha = alpha
 
     def step(self, x: int | float) -> int:
@@ -16,7 +22,8 @@ class Perceptron:
         # insert a column of 1's as the last entry in the feature matrix
         # this little trick allows us to treat the bias as a trainable
         # parameter within the weight matrix
-        X = np.c_[X, np.ones((X.shape[0]))]
+        if self.addBias:
+            X = np.c_[X, np.ones((X.shape[0]))]
 
         # loop over the desired number of epochs
         for epoch in np.arange(0, epochs):
@@ -35,16 +42,15 @@ class Perceptron:
                     # update the weight matrix
                     self.W += -self.alpha * error * x
 
-    def predict(self, X: np.ndarray, addBias: bool = True):
-        # ensure out input is a matrix
+    def predict(self, X: np.ndarray):
+        # ensure our input is a matrix
         X = np.atleast_2d(X)
 
         # check to see if the bias column should be added
-        if addBias:
+        if self.addBias:
             # insert a column of 1's as the last entry in the feature
             # matrix (bias)
             X = np.c_[X, np.ones((X.shape[0]))]
-
         # take the dot product between the input features and the
         # weight matrix, then pass the value through the step function
         return self.step(np.dot(X, self.W))
