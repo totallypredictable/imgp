@@ -30,7 +30,7 @@ def test_load(img_paths):
 
 
 def test_load_without_preprocessors(img_paths):
-    dl = SimpleDatasetLoader(preprocessors=None)
+    dl = SimpleDatasetLoader(preprocessors=[])
     with pytest.raises(Exception):
         dl.load(img_paths)
 
