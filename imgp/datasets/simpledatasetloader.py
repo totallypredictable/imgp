@@ -22,13 +22,9 @@ class SimpleDatasetLoader:
         preprocessors.
     """
 
-    def __init__(self, preprocessors: list[SimplePreprocessor] | None = None):
+    def __init__(self, preprocessors: list = []):
         # store the image preprocessor
         self.preprocessors = preprocessors
-
-        # if the preprocessors are NOne, initialize them as an empty list
-        if self.preprocessors is None:
-            self.preprocessors = []
 
     def load(
         self, imagePaths: list[str], verbose: int = -1
