@@ -35,3 +35,13 @@ def test_predict(X=X, y=y):
         pred.append(p.predict(x))
     desired = [0, 0, 1, 1]
     assert desired == pred
+
+
+def test_addbias(X=X, y=y):
+    p = Perceptron(X.shape[1], alpha=0.1, addBias=False)
+    p.fit(X, y, epochs=20)
+    pred = []
+    expected = [0, 1, 1, 1]
+    for (x, target) in zip(X, y):
+        pred.append(p.predict(x))
+    assert pred == expected
