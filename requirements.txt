@@ -4,3 +4,4 @@ pytest
 pre-commit
 pillow
 numpy
+tensorflow
