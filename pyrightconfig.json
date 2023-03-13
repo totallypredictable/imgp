@@ -1,0 +1,12 @@
+{
+  "include": [
+    "imgp",
+  ],
+
+
+  "venv": ".venv",
+  "venvPath": ".",
+
+  "reportMissingImports": true,
+  "reportMissingTypeStubs": true,
+}
