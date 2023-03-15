@@ -9,7 +9,7 @@ class LeNet:
         model = Sequential()
         inputShape = (height, width, depth)
 
-        model.add(Conv2D(50, (5, 5), padding="same"))
+        model.add(Conv2D(20, (5, 5), padding="same", input_shape=inputShape))
         model.add(Activation("relu"))
         model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
 
