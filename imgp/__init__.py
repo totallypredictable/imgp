@@ -15,4 +15,5 @@ __all__ = [
     "datasets",
     "nn",
     "preprocessing",
+    "io",
 ]
