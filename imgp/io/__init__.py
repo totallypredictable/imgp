@@ -1,3 +1,7 @@
 from .hdf5datasetwriter import HDF5DatasetWriter
+from .hdf5datasetgenerator import HDF5DatasetGenerator
 
-__all__ = ["HDF5DatasetWriter"]
+__all__ = [
+    "HDF5DatasetWriter",
+    "HDF5DatasetGenerator",
+]
